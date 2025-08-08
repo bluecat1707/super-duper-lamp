@@ -1,127 +1,103 @@
-// ===== GLOBAL VARIABLES =====
-let editMode = false;
-let editTimer;
+// ===== Select Elements =====
+const unlockBtn = document.getElementById("unlock-btn");
+const darkModeBtn = document.getElementById("dark-mode-btn");
+const allTopicInputs = document.querySelectorAll(".topic-input");
+const allCheckboxes = document.querySelectorAll(".checklist input[type='checkbox']");
 
-// ===== SELECTORS =====
-const unlockBtn = document.getElementById("unlockBtn");
-const darkModeBtn = document.getElementById("darkModeBtn");
-const printBtn = document.getElementById("printBtn");
-const namePrompt = () => prompt("Enter your name to unlock:");
+// ===== Local Storage Keys =====
+const STORAGE_KEY = "nursingPlannerData";
+const DARK_MODE_KEY = "nursingPlannerDarkMode";
 
-// ===== INITIAL LOAD =====
-document.addEventListener("DOMContentLoaded", () => {
-    loadFromStorage();
-    updateAllProgress();
-});
-
-// ===== UNLOCK / LOCK EDIT MODE =====
-unlockBtn.addEventListener("click", () => {
-    if (!editMode) {
-        const name = namePrompt();
-        if (name && (name.toLowerCase() === "ahamad" || name.toLowerCase() === "sakshi")) {
-            enableEdit();
-            alert(`Edit mode unlocked for ${name}`);
-        } else {
-            alert("Access denied. Only Ahamad or Sakshi can unlock.");
-        }
-    } else {
-        disableEdit();
-        alert("Edit mode locked.");
-    }
-});
-
-function enableEdit() {
-    editMode = true;
-    document.querySelectorAll('input[type="text"]').forEach(input => {
-        input.disabled = false;
-    });
-    unlockBtn.textContent = "Lock";
-    resetEditTimer();
-}
-
-function disableEdit() {
-    editMode = false;
-    document.querySelectorAll('input[type="text"]').forEach(input => {
-        input.disabled = true;
-    });
-    unlockBtn.textContent = "Unlock";
-    clearTimeout(editTimer);
-}
-
-function resetEditTimer() {
-    clearTimeout(editTimer);
-    editTimer = setTimeout(() => {
-        disableEdit();
-        alert("Edit mode auto-locked after 10 minutes of inactivity.");
-    }, 10 * 60 * 1000); // 10 minutes
-}
-
-// ===== SAVE & LOAD =====
-function saveToStorage() {
-    const data = [];
-    document.querySelectorAll(".task").forEach(task => {
-        const checkbox = task.querySelector('input[type="checkbox"]').checked;
-        const text = task.querySelector('input[type="text"]').value;
-        data.push({ checkbox, text });
-    });
-    localStorage.setItem("plannerData", JSON.stringify(data));
-}
-
+// ===== Load Saved Data =====
 function loadFromStorage() {
-    const storedData = JSON.parse(localStorage.getItem("plannerData"));
-    if (storedData) {
-        document.querySelectorAll(".task").forEach((task, index) => {
-            if (storedData[index]) {
-                task.querySelector('input[type="checkbox"]').checked = storedData[index].checkbox;
-                task.querySelector('input[type="text"]').value = storedData[index].text;
+    const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (savedData) {
+        // Restore inputs
+        allTopicInputs.forEach(input => {
+            if (savedData[input.id] !== undefined) {
+                input.value = savedData[input.id];
+            }
+        });
+        // Restore checkboxes
+        allCheckboxes.forEach(checkbox => {
+            if (savedData[checkbox.id] !== undefined) {
+                checkbox.checked = savedData[checkbox.id];
             }
         });
     }
+
+    // Restore dark mode
+    const darkMode = localStorage.getItem(DARK_MODE_KEY);
+    if (darkMode === "true") {
+        document.body.classList.add("dark");
+    }
 }
 
-// ===== PROGRESS BAR =====
-function updateAllProgress() {
-    document.querySelectorAll(".subject-card").forEach(subjectCard => {
-        const checkboxes = subjectCard.querySelectorAll('input[type="checkbox"]');
-        const total = checkboxes.length;
-        const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
-        const percentage = total > 0 ? (completed / total) * 100 : 0;
+// ===== Save Data =====
+function saveToStorage() {
+    const data = {};
+    allTopicInputs.forEach(input => {
+        data[input.id] = input.value;
+    });
+    allCheckboxes.forEach(checkbox => {
+        data[checkbox.id] = checkbox.checked;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
 
-        const progressBar = subjectCard.querySelector(".progress-bar");
-        if (progressBar) {
-            progressBar.style.width = percentage + "%";
-            if (percentage >= 80) {
-                progressBar.style.backgroundColor = "#27ae60"; // Green
-            } else if (percentage >= 50) {
-                progressBar.style.backgroundColor = "#f1c40f"; // Yellow
-            } else {
-                progressBar.style.backgroundColor = "#e74c3c"; // Red
+// ===== Update Progress Bars =====
+function updateAllProgress() {
+    document.querySelectorAll(".subject").forEach(subject => {
+        const checkboxes = subject.querySelectorAll("input[type='checkbox']");
+        if (checkboxes.length > 0) {
+            const completed = [...checkboxes].filter(cb => cb.checked).length;
+            const percent = Math.round((completed / checkboxes.length) * 100);
+            const bar = subject.querySelector(".progress-bar");
+            if (bar) {
+                bar.style.width = percent + "%";
             }
         }
     });
 }
 
-// ===== CHECKBOX & INPUT EVENTS =====
-document.addEventListener("input", e => {
-    if (e.target.type === "text" || e.target.type === "checkbox") {
-        saveToStorage();
-        updateAllProgress();
-        if (editMode) resetEditTimer();
+// ===== Unlock Editing =====
+function unlockEditing() {
+    const name = prompt("Enter your name to unlock (Ahamad or Sakshi):");
+    if (name && (name.toLowerCase() === "ahamad" || name.toLowerCase() === "sakshi")) {
+        allTopicInputs.forEach(input => input.disabled = false);
+        alert("Editing unlocked for " + name);
+        setTimeout(() => {
+            allTopicInputs.forEach(input => input.disabled = true);
+            alert("Editing locked again for security.");
+        }, 10 * 60 * 1000); // Auto-lock after 10 minutes
+    } else {
+        alert("Access denied.");
     }
-});
-
-// ===== DARK MODE TOGGLE =====
-darkModeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-});
-
-// Load dark mode preference
-if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
 }
 
-// ===== PRINT BUTTON =====
-printBtn.addEventListener("click", () => {
-    window.print();
+// ===== Toggle Dark Mode =====
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(DARK_MODE_KEY, document.body.classList.contains("dark"));
+}
+
+// ===== Event Listeners =====
+unlockBtn.addEventListener("click", unlockEditing);
+darkModeBtn.addEventListener("click", toggleDarkMode);
+
+allTopicInputs.forEach(input => {
+    input.addEventListener("input", () => {
+        saveToStorage();
+    });
 });
+
+allCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+        saveToStorage();
+        updateAllProgress();
+    });
+});
+
+// ===== Initialize =====
+loadFromStorage();
+updateAllProgress();
