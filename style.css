@@ -1,106 +1,100 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
+    font-family: 'Inter', sans-serif;
     background: #f5f7fa;
-    color: #222;
+    color: #2c3e50;
     padding: 20px;
-    line-height: 1.5;
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 header h1 {
-    font-size: 1.9rem;
-    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 header p {
-    font-size: 1rem;
     color: #555;
 }
 
-#planner {
+main {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-.card {
+.subject {
     background: white;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
-    border-top: 5px solid var(--card-color);
+    border-top: 6px solid var(--subject-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
 }
 
-.card:hover {
-    transform: translateY(-3px);
-}
-
-.card h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #34495e;
+.subject h2 {
+    margin-bottom: 15px;
+    color: var(--subject-color);
 }
 
 .section {
-    margin-top: 12px;
+    background: #f9fbfd;
     padding: 10px;
-    background: #f0f4f8;
-    border-radius: 8px;
+    border-radius: 6px;
+    margin-bottom: 12px;
 }
 
 .section h3 {
     font-size: 1rem;
-    margin-bottom: 5px;
-    color: #2c3e50;
+    margin-bottom: 8px;
 }
 
-.task {
-    margin: 4px 0;
-    padding: 6px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    font-size: 0.9rem;
+.clinical {
+    font-weight: bold;
+    text-align: center;
+    background: #eafaf1;
+    border: 1px solid #b2f0d5;
+    color: #2e7d32;
+}
+
+.names {
     display: flex;
+    gap: 10px;
     justify-content: space-between;
-    align-items: center;
 }
 
-.task input[type="text"] {
-    border: none;
-    background: none;
-    outline: none;
-    width: 80%;
+.names div {
+    flex: 1;
 }
 
-.clear-btn {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    background: #ff4d4f;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.clear-btn:hover {
-    background: #e63946;
+.multi-line {
+    border-bottom: 1px dashed #999;
+    height: 60px;
+    margin-top: 5px;
 }
 
 footer {
-    margin-top: 30px;
     text-align: center;
-    font-size: 0.85rem;
+    margin-top: 20px;
+    font-size: 0.9rem;
     color: #666;
+}
+
+/* Print friendly */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    .subject {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
 }
