@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #222;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.9rem;
+    color: #2c3e50;
+}
+
+header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+#planner {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    border-top: 5px solid var(--card-color);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.section {
+    margin-top: 12px;
+    padding: 10px;
+    background: #f0f4f8;
+    border-radius: 8px;
+}
+
+.section h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.task {
+    margin: 4px 0;
+    padding: 6px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task input[type="text"] {
+    border: none;
+    background: none;
+    outline: none;
+    width: 80%;
+}
+
+.clear-btn {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    background: #e63946;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+}
