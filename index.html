@@ -1,158 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment & Clinical Planner</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Assignment & Clinical Planner — Ahamad & Sakshi</title>
+
+  <!-- Google font (used for premium look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet (I'll provide next) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicons / theme color -->
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <header>
-        <h1>📅 Assignment & Clinical Planner</h1>
-        <p>For Ahamad & Sakshi</p>
-    </header>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1 class="title">📅 Assignment & Clinical Planner</h1>
+        <p class="subtitle">For <strong>Ahamad</strong> &amp; <strong>Sakshi</strong></p>
+      </div>
 
-    <main>
-        <!-- Nursing Management -->
-        <section class="subject" style="--subject-color:#1abc9c">
-            <h2>Nursing Management</h2>
-            <div class="section clinical">Clinical</div>
-            <div class="section">
-                <h3>Assignment 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Assignment 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-        </section>
+      <!-- Toolbar: unlock, dark mode, save/print (JS will enhance behavior) -->
+      <div class="toolbar" role="toolbar" aria-label="Planner controls">
+        <div class="unlock-group">
+          <label for="unlockInput" class="sr-only">Enter name to unlock editing</label>
+          <input id="unlockInput" type="password" placeholder="Enter name to unlock (Ahamad / Sakshi)" aria-label="Unlock edit" />
+          <button id="unlockBtn" class="btn primary" aria-pressed="false" title="Unlock edit mode">Unlock</button>
+        </div>
 
-        <!-- Child Health Nursing 2 -->
-        <section class="subject" style="--subject-color:#3498db">
-            <h2>Child Health Nursing 2</h2>
-            <div class="section clinical">Clinical</div>
-            <div class="section">
-                <h3>Assignment 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Assignment 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-        </section>
+        <div class="controls">
+          <button id="editToggleBtn" class="btn" title="Toggle edit mode (locked by default)">Edit</button>
+          <button id="saveBtn" class="btn" title="Save progress locally">Save</button>
+          <button id="clearBtn" class="btn danger" title="Clear all saved progress">Clear All</button>
+          <button id="printBtn" class="btn" title="Export / Print planner">Export / Print</button>
+          <button id="darkModeToggle" class="btn" title="Toggle dark mode" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <!-- Mental Health Nursing 2 -->
-        <section class="subject" style="--subject-color:#9b59b6">
-            <h2>Mental Health Nursing 2</h2>
-            <div class="section clinical">Clinical</div>
-            <div class="section">
-                <h3>Assignment 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Assignment 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-        </section>
+  <main id="main" class="container" role="main">
+    <!-- Page intro / hints -->
+    <section class="intro" aria-hidden="false">
+      <p class="hint">Double-click any field after unlocking to quickly edit. Data is stored locally on your device. Use <strong>Export / Print</strong> to save as PDF.</p>
+    </section>
 
-        <!-- Midwifery -->
-        <section class="subject" style="--subject-color:#e67e22">
-            <h2>Midwifery</h2>
-            <div class="section clinical">Clinical</div>
-            <div class="section">
-                <h3>Assignment 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
+    <!-- Planner grid -->
+    <section id="plannerGrid" class="grid">
+      <!-- SUBJECT: Nursing Management -->
+      <article class="subject-card" data-subject="Nursing Management" style="--subject-color:#1abc9c">
+        <header class="subject-header">
+          <h2 class="subject-title">Nursing Management</h2>
+          <div class="subject-progress" aria-hidden="true">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" style="width:0%"></div>
             </div>
-            <div class="section">
-                <h3>Assignment 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 1</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Seminar 2</h3>
-                <div class="names">
-                    <div><strong>Ahamad:</strong><div class="multi-line"></div></div>
-                    <div><strong>Sakshi:</strong><div class="multi-line"></div></div>
-                </div>
-            </div>
-        </section>
-    </main>
+            <span class="progress-label">0%</span>
+          </div>
+        </header>
 
-    <footer>
-        <p>Made with ❤️ for productive nursing students</p>
-    </footer>
+        <div class="subject-body">
+          <!-- Clinical (tickable only, no topic lines) -->
+          <div class="task-row clinical" data-key="NursingManagement::Clinical">
+            <label class="task-checkbox">
+              <input type="checkbox" class="task-complete" aria-label="Mark Clinical complete" />
+              <span class="task-label">Clinical</span>
+            </label>
+            <div class="task-meta"></div>
+          </div>
+
+          <!-- Assignment / Seminar rows (each has Ahamad & Sakshi editable areas) -->
+          <div class="task-row" data-key="NursingManagement::Assignment1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" aria-label="Mark Assignment 1 complete" />
+              <span class="task-label">Assignment 1</span>
+            </label>
+
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <!-- preview container; JS will replace with textarea in edit mode -->
+                <div class="multi-line" data-planner-key="NursingManagement::Assignment1::Ahamad" aria-label="Ahamad topic preview" tabindex="0"></div>
+              </div>
+
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Assignment1::Sakshi" aria-label="Sakshi topic preview" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="NursingManagement::Assignment2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" aria-label="Mark Assignment 2 complete" />
+              <span class="task-label">Assignment 2</span>
+            </label>
+
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Assignment2::Ahamad" tabindex="0"></div>
+              </div>
+
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Assignment2::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="NursingManagement::Seminar1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" aria-label="Mark Seminar 1 complete" />
+              <span class="task-label">Seminar 1</span>
+            </label>
+
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Seminar1::Ahamad" tabindex="0"></div>
+              </div>
+
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Seminar1::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="NursingManagement::Seminar2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" aria-label="Mark Seminar 2 complete" />
+              <span class="task-label">Seminar 2</span>
+            </label>
+
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Seminar2::Ahamad" tabindex="0"></div>
+              </div>
+
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Seminar2::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group project row -->
+          <div class="task-row" data-key="NursingManagement::Group">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" aria-label="Mark Group Project complete" />
+              <span class="task-label">Group Project</span>
+            </label>
+
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Group::Ahamad" tabindex="0"></div>
+              </div>
+
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="NursingManagement::Group::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SUBJECT: Child Health Nursing 2 -->
+      <article class="subject-card" data-subject="Child Health Nursing 2" style="--subject-color:#3498db">
+        <header class="subject-header">
+          <h2 class="subject-title">Child Health Nursing 2</h2>
+          <div class="subject-progress" aria-hidden="true">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" style="width:0%"></div>
+            </div>
+            <span class="progress-label">0%</span>
+          </div>
+        </header>
+
+        <div class="subject-body">
+          <div class="task-row clinical" data-key="ChildHealth2::Clinical">
+            <label class="task-checkbox">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Clinical</span>
+            </label>
+          </div>
+
+          <div class="task-row" data-key="ChildHealth2::Assignment1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Assignment1::Ahamad" tabindex="0"></div>
+              </div>
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Assignment1::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="ChildHealth2::Assignment2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Assignment2::Ahamad" tabindex="0"></div>
+              </div>
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Assignment2::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="ChildHealth2::Seminar1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Seminar1::Ahamad" tabindex="0"></div>
+              </div>
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Seminar1::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="ChildHealth2::Seminar2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column">
+                <div class="owner-name">Ahamad</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Seminar2::Ahamad" tabindex="0"></div>
+              </div>
+              <div class="owner-column">
+                <div class="owner-name">Sakshi</div>
+                <div class="multi-line" data-planner-key="ChildHealth2::Seminar2::Sakshi" tabindex="0"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="ChildHealth2::Group">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Group Project</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="ChildHealth2::Group::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="ChildHealth2::Group::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SUBJECT: Mental Health Nursing 2 -->
+      <article class="subject-card" data-subject="Mental Health Nursing 2" style="--subject-color:#9b59b6">
+        <header class="subject-header">
+          <h2 class="subject-title">Mental Health Nursing 2</h2>
+          <div class="subject-progress" aria-hidden="true">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" style="width:0%"></div>
+            </div>
+            <span class="progress-label">0%</span>
+          </div>
+        </header>
+
+        <div class="subject-body">
+          <div class="task-row clinical" data-key="MentalHealth2::Clinical">
+            <label class="task-checkbox">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Clinical</span>
+            </label>
+          </div>
+
+          <div class="task-row" data-key="MentalHealth2::Assignment1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="MentalHealth2::Assignment1::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="MentalHealth2::Assignment1::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="MentalHealth2::Assignment2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="MentalHealth2::Assignment2::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="MentalHealth2::Assignment2::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="MentalHealth2::Seminar1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="MentalHealth2::Seminar1::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="MentalHealth2::Seminar1::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="MentalHealth2::Seminar2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="MentalHealth2::Seminar2::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="MentalHealth2::Seminar2::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="MentalHealth2::Group">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Group Project</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="MentalHealth2::Group::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="MentalHealth2::Group::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SUBJECT: Midwifery -->
+      <article class="subject-card" data-subject="Midwifery" style="--subject-color:#e67e22">
+        <header class="subject-header">
+          <h2 class="subject-title">Midwifery</h2>
+          <div class="subject-progress" aria-hidden="true">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" style="width:0%"></div>
+            </div>
+            <span class="progress-label">0%</span>
+          </div>
+        </header>
+
+        <div class="subject-body">
+          <div class="task-row clinical" data-key="Midwifery::Clinical">
+            <label class="task-checkbox">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Clinical</span>
+            </label>
+          </div>
+
+          <div class="task-row" data-key="Midwifery::Assignment1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="Midwifery::Assignment1::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="Midwifery::Assignment1::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="Midwifery::Assignment2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Assignment 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="Midwifery::Assignment2::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="Midwifery::Assignment2::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="Midwifery::Seminar1">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 1</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="Midwifery::Seminar1::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="Midwifery::Seminar1::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="Midwifery::Seminar2">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Seminar 2</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="Midwifery::Seminar2::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="Midwifery::Seminar2::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+
+          <div class="task-row" data-key="Midwifery::Group">
+            <label class="task-checkbox small">
+              <input type="checkbox" class="task-complete" />
+              <span class="task-label">Group Project</span>
+            </label>
+            <div class="task-content two-columns">
+              <div class="owner-column"><div class="owner-name">Ahamad</div><div class="multi-line" data-planner-key="Midwifery::Group::Ahamad" tabindex="0"></div></div>
+              <div class="owner-column"><div class="owner-name">Sakshi</div><div class="multi-line" data-planner-key="Midwifery::Group::Sakshi" tabindex="0"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>Made with ❤️ — Planner works offline and saves locally. Future: sync & share.</p>
+    </div>
+  </footer>
+
+  <!-- Script (I'll provide full script.js next) -->
+  <script src="script.js"></script>
 </body>
 </html>
