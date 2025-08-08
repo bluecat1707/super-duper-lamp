@@ -1,228 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nursing Planner</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment & Clinical Planner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <header>
-    <h1>📅 Nursing Planner</h1>
-    <div class="header-buttons">
-      <button id="unlockAhamad">🔓 Unlock Ahamad</button>
-      <button id="unlockSakshi">🔓 Unlock Sakshi</button>
-      <button id="darkToggle">🌙 Toggle Dark Mode</button>
-    </div>
-  </header>
-
-  <main>
-    <!-- ===== AHAMAD SECTION ===== -->
-    <section class="person-section">
-      <h2>👨‍⚕️ Ahamad</h2>
-
-      <!-- Subject: Nursing Management -->
-      <div class="subject-card">
-        <h3>Nursing Management</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
+    <header>
+        <h1>📋 Assignment & Clinical Planner</h1>
+        <div class="top-controls">
+            <button id="unlockBtn">🔓 Unlock</button>
+            <button id="darkModeBtn">🌙 Dark Mode</button>
+            <button id="printBtn">🖨️ Print</button>
         </div>
+    </header>
 
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
+    <main>
+        <!-- ================== Ahamad Section ================== -->
+        <section class="person-section" id="ahamad-section">
+            <h2>Ahamad's Tasks</h2>
 
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
+            <!-- Nursing Management -->
+            <div class="subject">
+                <h3>Nursing Management</h3>
+                <div class="progress"><div class="progress-bar"></div></div>
 
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
+                <div class="task-group">
+                    <h4>Assignments</h4>
+                    <input type="text" placeholder="Assignment 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Assignment 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group">
+                    <h4>Seminars</h4>
+                    <input type="text" placeholder="Seminar 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Seminar 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group checklist">
+                    <h4>Clinical</h4>
+                    <label><input type="checkbox"> Task 1</label>
+                    <label><input type="checkbox"> Task 2</label>
+                </div>
+            </div>
 
-      <!-- Subject: Child Health Nursing 2 -->
-      <div class="subject-card">
-        <h3>Child Health Nursing 2</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
+            <!-- Child Health Nursing 2 -->
+            <div class="subject">
+                <h3>Child Health Nursing 2</h3>
+                <div class="progress"><div class="progress-bar"></div></div>
 
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
+                <div class="task-group">
+                    <h4>Assignments</h4>
+                    <input type="text" placeholder="Assignment 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Assignment 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group">
+                    <h4>Seminars</h4>
+                    <input type="text" placeholder="Seminar 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Seminar 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group checklist">
+                    <h4>Clinical</h4>
+                    <label><input type="checkbox"> Task 1</label>
+                    <label><input type="checkbox"> Task 2</label>
+                </div>
+            </div>
 
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
+            <!-- Mental Health Nursing 2 -->
+            <div class="subject">
+                <h3>Mental Health Nursing 2</h3>
+                <div class="progress"><div class="progress-bar"></div></div>
 
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
+                <div class="task-group">
+                    <h4>Assignments</h4>
+                    <input type="text" placeholder="Assignment 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Assignment 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group">
+                    <h4>Seminars</h4>
+                    <input type="text" placeholder="Seminar 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Seminar 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group checklist">
+                    <h4>Clinical</h4>
+                    <label><input type="checkbox"> Task 1</label>
+                    <label><input type="checkbox"> Task 2</label>
+                </div>
+            </div>
 
-      <!-- Subject: Mental Health Nursing 2 -->
-      <div class="subject-card">
-        <h3>Mental Health Nursing 2</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
+            <!-- Midwifery -->
+            <div class="subject">
+                <h3>Midwifery</h3>
+                <div class="progress"><div class="progress-bar"></div></div>
 
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
+                <div class="task-group">
+                    <h4>Assignments</h4>
+                    <input type="text" placeholder="Assignment 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Assignment 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group">
+                    <h4>Seminars</h4>
+                    <input type="text" placeholder="Seminar 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Seminar 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group checklist">
+                    <h4>Clinical</h4>
+                    <label><input type="checkbox"> Task 1</label>
+                    <label><input type="checkbox"> Task 2</label>
+                </div>
+            </div>
+        </section>
 
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
+        <!-- ================== Sakshi Section ================== -->
+        <section class="person-section" id="sakshi-section">
+            <h2>Sakshi's Tasks</h2>
+            <!-- Same structure as Ahamad -->
+            <div class="subject">
+                <h3>Nursing Management</h3>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <div class="task-group">
+                    <h4>Assignments</h4>
+                    <input type="text" placeholder="Assignment 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Assignment 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group">
+                    <h4>Seminars</h4>
+                    <input type="text" placeholder="Seminar 1 topic" class="topic-input" disabled>
+                    <input type="text" placeholder="Seminar 2 topic" class="topic-input" disabled>
+                </div>
+                <div class="task-group checklist">
+                    <h4>Clinical</h4>
+                    <label><input type="checkbox"> Task 1</label>
+                    <label><input type="checkbox"> Task 2</label>
+                </div>
+            </div>
+            <!-- Repeat for other subjects... -->
+        </section>
 
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
+        <!-- ================== Group Project ================== -->
+        <section class="person-section" id="group-project-section">
+            <h2>Group Project</h2>
+            <div class="task-group checklist">
+                <label><input type="checkbox"> Literature Review</label>
+                <label><input type="checkbox"> Data Collection</label>
+                <label><input type="checkbox"> Analysis</label>
+                <label><input type="checkbox"> Final Presentation</label>
+            </div>
+        </section>
+    </main>
 
-      <!-- Subject: Midwifery -->
-      <div class="subject-card">
-        <h3>Midwifery</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
-
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
-
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
-
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
-    </section>
-
-    <!-- ===== SAKSHI SECTION ===== -->
-    <section class="person-section">
-      <h2>👩‍⚕️ Sakshi</h2>
-
-      <!-- Same subjects repeated for Sakshi -->
-      <!-- Nursing Management -->
-      <div class="subject-card">
-        <h3>Nursing Management</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
-
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
-
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
-
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
-
-      <!-- Child Health Nursing 2 -->
-      <div class="subject-card">
-        <h3>Child Health Nursing 2</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
-
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
-
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
-
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
-
-      <!-- Mental Health Nursing 2 -->
-      <div class="subject-card">
-        <h3>Mental Health Nursing 2</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
-
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
-
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
-
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
-
-      <!-- Midwifery -->
-      <div class="subject-card">
-        <h3>Midwifery</h3>
-        
-        <div class="section">
-          <h4>Assignments</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Assignment 2" disabled></div>
-        </div>
-
-        <div class="section">
-          <h4>Seminars</h4>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 1" disabled></div>
-          <div class="task"><input type="checkbox"><input type="text" placeholder="Seminar 2" disabled></div>
-        </div>
-
-        <div class="section clinical">
-          <h4>Clinical</h4>
-          <div class="task"><input type="checkbox"><label>Completed</label></div>
-        </div>
-
-        <div class="progress-container"><div class="progress-bar"></div></div>
-      </div>
-
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
