@@ -1,100 +1,154 @@
+/* ====== Google Font ====== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #f5f7fa;
-    color: #2c3e50;
-    padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+  padding: 20px;
 }
 
+/* ===== Header ===== */
 header {
-    text-align: center;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 header h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
-header p {
-    color: #555;
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
 }
 
+button:hover {
+  background: #45a049;
+}
+
+/* ===== Dark Mode ===== */
+body.dark {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+body.dark .subject-card {
+  background: #2a2a2a;
+}
+
+body.dark button {
+  background: #666;
+}
+
+body.dark .progress-bar {
+  background: #444;
+}
+
+/* ===== Subject Cards ===== */
 main {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.subject {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    border-top: 6px solid var(--subject-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+.subject-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.subject h2 {
-    margin-bottom: 15px;
-    color: var(--subject-color);
+.subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
+.subject-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+/* ===== Sections ===== */
 .section {
-    background: #f9fbfd;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .section h3 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #555;
 }
 
-.clinical {
-    font-weight: bold;
-    text-align: center;
-    background: #eafaf1;
-    border: 1px solid #b2f0d5;
-    color: #2e7d32;
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
-.names {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
+.task input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
 }
 
-.names div {
-    flex: 1;
+.task input[type="text"] {
+  border: none;
+  border-bottom: 1px dashed #ccc;
+  padding: 4px;
+  flex: 1;
+  font-size: 0.9rem;
+  background: transparent;
 }
 
-.multi-line {
-    border-bottom: 1px dashed #999;
-    height: 60px;
-    margin-top: 5px;
+.task input[disabled] {
+  color: #888;
+  pointer-events: none;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: #666;
+/* ===== Progress Bar ===== */
+.progress-container {
+  background: #ddd;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
 }
 
-/* Print friendly */
+.progress-bar {
+  background: #4CAF50;
+  height: 8px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ===== Print Mode ===== */
 @media print {
-    body {
-        background: white;
-        padding: 0;
-    }
-    .subject {
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
+  header button, .dark-toggle {
+    display: none;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  .subject-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
 }
