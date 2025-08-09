@@ -1,114 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment & Clinical Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nursing Planner — Ahamad & Sakshi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>📋 Assignment & Clinical Planner</h1>
-        <div class="controls">
-            <button id="toggle-dark">🌙 Dark Mode</button>
-            <button data-person="Ahamad" class="unlock-btn">🔓 Unlock Ahamad</button>
-            <button data-person="Sakshi" class="unlock-btn">🔓 Unlock Sakshi</button>
+  <header class="site-header">
+    <h1>📋 Assignment & Clinical Planner</h1>
+    <div class="toolbar">
+      <button id="saveBtn" class="btn">💾 Save</button>
+      <button id="clearBtn" class="btn danger">🗑 Clear All</button>
+      <button id="darkModeBtn" class="btn">🌙 Dark</button>
+      <button id="printBtn" class="btn">🖨 Print</button>
+      <span class="spacer"></span>
+      <button id="unlockAhamadBtn" class="btn unlock">🔓 Unlock Ahamad</button>
+      <button id="unlockSakshiBtn" class="btn unlock">🔓 Unlock Sakshi</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- AHAMAD -->
+    <section class="person-section" id="person-Ahamad" data-owner="Ahamad">
+      <div class="person-header">
+        <h2>Ahamad</h2>
+        <div id="status-Ahamad" class="save-status">Saved</div>
+      </div>
+
+      <!-- SUBJECT: Nursing Management -->
+      <article class="subject" data-subject-id="NursingManagement">
+        <h3>Nursing Management</h3>
+
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Ahamad::NursingManagement::Assignment1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+
+          <label>Assignment 2
+            <input class="topic-input" data-key="Ahamad::NursingManagement::Assignment2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+
+          <label>Seminar 1
+            <input class="topic-input" data-key="Ahamad::NursingManagement::Seminar1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+
+          <label>Seminar 2
+            <input class="topic-input" data-key="Ahamad::NursingManagement::Seminar2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
         </div>
-    </header>
 
-    <main>
-        <!-- Person Section Template -->
-        <section class="person" id="Ahamad-section">
-            <h2>Ahamad's Tasks</h2>
-            <div class="save-status" id="save-status-Ahamad">Saved</div>
-            <!-- Subjects -->
-            <div class="subject">
-                <h3>Nursing Management</h3>
-                <label>Assignment 1: <input class="topic-input" id="Ahamad_nm_a1" disabled></label>
-                <label>Assignment 2: <input class="topic-input" id="Ahamad_nm_a2" disabled></label>
-                <label>Seminar 1: <input class="topic-input" id="Ahamad_nm_s1" disabled></label>
-                <label>Seminar 2: <input class="topic-input" id="Ahamad_nm_s2" disabled></label>
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Ahamad::NursingManagement::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
 
-                <div class="checklist">
-                    <h4>Clinical Tasks</h4>
-                    <label><input type="checkbox" id="Ahamad_nm_c1"> Clinical Task 1</label>
-                    <label><input type="checkbox" id="Ahamad_nm_c2"> Clinical Task 2</label>
-                </div>
-                <div class="checklist">
-                    <h4>Group Project</h4>
-                    <label><input type="checkbox" id="Ahamad_nm_gp"> Completed</label>
-                </div>
-                <div class="progress"><div class="progress-bar"></div></div>
-            </div>
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Ahamad::NursingManagement::Group" type="checkbox"> Group project completed</label>
+        </div>
 
-            <div class="subject">
-                <h3>Child Health Nursing 2</h3>
-                <label>Assignment 1: <input class="topic-input" id="Ahamad_ch_a1" disabled></label>
-                <label>Assignment 2: <input class="topic-input" id="Ahamad_ch_a2" disabled></label>
-                <label>Seminar 1: <input class="topic-input" id="Ahamad_ch_s1" disabled></label>
-                <label>Seminar 2: <input class="topic-input" id="Ahamad_ch_s2" disabled></label>
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
 
-                <div class="checklist">
-                    <h4>Clinical Tasks</h4>
-                    <label><input type="checkbox" id="Ahamad_ch_c1"> Clinical Task 1</label>
-                    <label><input type="checkbox" id="Ahamad_ch_c2"> Clinical Task 2</label>
-                </div>
-                <div class="checklist">
-                    <h4>Group Project</h4>
-                    <label><input type="checkbox" id="Ahamad_ch_gp"> Completed</label>
-                </div>
-                <div class="progress"><div class="progress-bar"></div></div>
-            </div>
+      <!-- SUBJECT: Child Health Nursing 2 -->
+      <article class="subject" data-subject-id="ChildHealth2">
+        <h3>Child Health Nursing 2</h3>
 
-            <div class="subject">
-                <h3>Mental Health Nursing 2</h3>
-                <label>Assignment 1: <input class="topic-input" id="Ahamad_mh_a1" disabled></label>
-                <label>Assignment 2: <input class="topic-input" id="Ahamad_mh_a2" disabled></label>
-                <label>Seminar 1: <input class="topic-input" id="Ahamad_mh_s1" disabled></label>
-                <label>Seminar 2: <input class="topic-input" id="Ahamad_mh_s2" disabled></label>
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Ahamad::ChildHealth2::Assignment1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
 
-                <div class="checklist">
-                    <h4>Clinical Tasks</h4>
-                    <label><input type="checkbox" id="Ahamad_mh_c1"> Clinical Task 1</label>
-                    <label><input type="checkbox" id="Ahamad_mh_c2"> Clinical Task 2</label>
-                </div>
-                <div class="checklist">
-                    <h4>Group Project</h4>
-                    <label><input type="checkbox" id="Ahamad_mh_gp"> Completed</label>
-                </div>
-                <div class="progress"><div class="progress-bar"></div></div>
-            </div>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Ahamad::ChildHealth2::Assignment2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
 
-            <div class="subject">
-                <h3>Midwifery</h3>
-                <label>Assignment 1: <input class="topic-input" id="Ahamad_mid_a1" disabled></label>
-                <label>Assignment 2: <input class="topic-input" id="Ahamad_mid_a2" disabled></label>
-                <label>Seminar 1: <input class="topic-input" id="Ahamad_mid_s1" disabled></label>
-                <label>Seminar 2: <input class="topic-input" id="Ahamad_mid_s2" disabled></label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Ahamad::ChildHealth2::Seminar1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
 
-                <div class="checklist">
-                    <h4>Clinical Tasks</h4>
-                    <label><input type="checkbox" id="Ahamad_mid_c1"> Clinical Task 1</label>
-                    <label><input type="checkbox" id="Ahamad_mid_c2"> Clinical Task 2</label>
-                </div>
-                <div class="checklist">
-                    <h4>Group Project</h4>
-                    <label><input type="checkbox" id="Ahamad_mid_gp"> Completed</label>
-                </div>
-                <div class="progress"><div class="progress-bar"></div></div>
-            </div>
-        </section>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Ahamad::ChildHealth2::Seminar2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
 
-        <!-- Sakshi Section -->
-        <section class="person" id="Sakshi-section">
-            <h2>Sakshi's Tasks</h2>
-            <div class="save-status" id="save-status-Sakshi">Saved</div>
-            <!-- Copy same subjects but with Sakshi IDs -->
-            <!-- For brevity in this message, I’ll duplicate them exactly but with Sakshi_ prefix -->
-            <!-- (In final code, all IDs will match pattern Sakshi_nm_a1, Sakshi_ch_a1, etc.) -->
-        </section>
-    </main>
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Ahamad::ChildHealth2::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Ahamad::ChildHealth2::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <!-- SUBJECT: Mental Health Nursing 2 -->
+      <article class="subject" data-subject-id="MentalHealth2">
+        <h3>Mental Health Nursing 2</h3>
+
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Ahamad::MentalHealth2::Assignment1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Ahamad::MentalHealth2::Assignment2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Ahamad::MentalHealth2::Seminar1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Ahamad::MentalHealth2::Seminar2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Ahamad::MentalHealth2::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Ahamad::MentalHealth2::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <!-- SUBJECT: Midwifery -->
+      <article class="subject" data-subject-id="Midwifery">
+        <h3>Midwifery</h3>
+
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Ahamad::Midwifery::Assignment1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Ahamad::Midwifery::Assignment2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Ahamad::Midwifery::Seminar1" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Ahamad::Midwifery::Seminar2" data-owner="Ahamad" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Ahamad::Midwifery::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Ahamad::Midwifery::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+    </section>
+
+    <!-- SAKSHI -->
+    <section class="person-section" id="person-Sakshi" data-owner="Sakshi">
+      <div class="person-header">
+        <h2>Sakshi</h2>
+        <div id="status-Sakshi" class="save-status">Saved</div>
+      </div>
+
+      <!-- Nursing Management -->
+      <article class="subject" data-subject-id="NursingManagement">
+        <h3>Nursing Management</h3>
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Sakshi::NursingManagement::Assignment1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Sakshi::NursingManagement::Assignment2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Sakshi::NursingManagement::Seminar1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Sakshi::NursingManagement::Seminar2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Sakshi::NursingManagement::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Sakshi::NursingManagement::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <!-- Child Health Nursing 2 -->
+      <article class="subject" data-subject-id="ChildHealth2">
+        <h3>Child Health Nursing 2</h3>
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Sakshi::ChildHealth2::Assignment1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Sakshi::ChildHealth2::Assignment2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Sakshi::ChildHealth2::Seminar1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Sakshi::ChildHealth2::Seminar2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Sakshi::ChildHealth2::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Sakshi::ChildHealth2::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <!-- Mental Health Nursing 2 -->
+      <article class="subject" data-subject-id="MentalHealth2">
+        <h3>Mental Health Nursing 2</h3>
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Sakshi::MentalHealth2::Assignment1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Sakshi::MentalHealth2::Assignment2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Sakshi::MentalHealth2::Seminar1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Sakshi::MentalHealth2::Seminar2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Sakshi::MentalHealth2::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Sakshi::MentalHealth2::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+
+      <!-- Midwifery -->
+      <article class="subject" data-subject-id="Midwifery">
+        <h3>Midwifery</h3>
+        <div class="task-block">
+          <label>Assignment 1
+            <input class="topic-input" data-key="Sakshi::Midwifery::Assignment1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Assignment 2
+            <input class="topic-input" data-key="Sakshi::Midwifery::Assignment2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 1
+            <input class="topic-input" data-key="Sakshi::Midwifery::Seminar1" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+          <label>Seminar 2
+            <input class="topic-input" data-key="Sakshi::Midwifery::Seminar2" data-owner="Sakshi" type="text" placeholder="Topic (locked)">
+          </label>
+        </div>
+
+        <div class="checklist">
+          <h4>Clinical</h4>
+          <label><input data-key="Sakshi::Midwifery::Clinical" type="checkbox"> Clinical completed</label>
+        </div>
+
+        <div class="checklist">
+          <h4>Group Project</h4>
+          <label><input data-key="Sakshi::Midwifery::Group" type="checkbox"> Group project completed</label>
+        </div>
+
+        <div class="progress"><div class="progress-bar"></div></div>
+      </article>
+    </section>
+  </main>
+
+  <footer style="text-align:center;margin:18px 0;color:#666;font-size:0.9rem;">
+    Works offline — changes saved to this device only.
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
