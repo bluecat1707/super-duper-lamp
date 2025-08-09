@@ -1,139 +1,172 @@
-/* ===== Global Styles ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, sans-serif;
+/* Global Styles */
+:root {
+    --bg-light: #f9f9f9;
+    --bg-dark: #1e1e1e;
+    --text-light: #333;
+    --text-dark: #f9f9f9;
+    --primary: #4a90e2;
+    --accent: #2ecc71;
+    --danger: #e74c3c;
+    --card-bg-light: #fff;
+    --card-bg-dark: #2a2a2a;
+    --border-radius: 10px;
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-light);
+    color: var(--text-light);
     transition: background 0.3s, color 0.3s;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+/* Dark Mode */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
 }
 
-h1 {
-    font-size: 2rem;
+header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.controls {
+    margin-top: 0.5rem;
 }
 
 .controls button {
-    padding: 8px 15px;
-    margin-left: 8px;
+    background: white;
+    color: var(--primary);
     border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
     cursor: pointer;
+    margin: 0 0.25rem;
     transition: background 0.2s;
 }
 
 .controls button:hover {
-    background: #0056b3;
+    background: #f1f1f1;
 }
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-/* ===== Person Section ===== */
+/* Person Sections */
 .person {
-    flex: 1 1 500px;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: var(--card-bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+body.dark .person {
+    background: var(--card-bg-dark);
 }
 
 .person h2 {
-    margin-bottom: 15px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
+    margin-top: 0;
 }
 
-/* ===== Subject Box ===== */
+/* Save Status */
+.save-status {
+    color: var(--accent);
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-bottom: 0.5rem;
+}
+
+.save-status.show {
+    opacity: 1;
+}
+
+/* Subject Cards */
 .subject {
-    background: #fdfdfd;
     border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.6);
+    transition: background 0.3s;
+}
+
+body.dark .subject {
+    background: rgba(50,50,50,0.6);
 }
 
 .subject h3 {
-    margin-bottom: 10px;
-    color: #007bff;
+    margin-top: 0;
+    color: var(--primary);
 }
 
-/* ===== Tasks & Inputs ===== */
-.tasks label,
+.subject label {
+    display: block;
+    margin: 0.4rem 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    margin-top: 0.2rem;
+}
+
+input:disabled {
+    background: #eee;
+    cursor: not-allowed;
+}
+
+/* Checklist Section */
+.checklist h4 {
+    margin: 0.5rem 0 0.3rem;
+    color: var(--accent);
+}
+
 .checklist label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
+    padding-left: 0.5rem;
 }
 
-.topic-input {
-    padding: 6px;
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-top: 3px;
-    font-size: 0.9rem;
-}
-
-/* ===== Checklist ===== */
-.checklist {
-    margin-top: 10px;
-}
-
-.checklist h4 {
-    margin-bottom: 6px;
-    color: #28a745;
-}
-
-/* ===== Progress Bar ===== */
+/* Progress Bar */
 .progress {
-    background: #e9ecef;
     height: 8px;
+    background: #ddd;
     border-radius: 4px;
-    margin-top: 10px;
     overflow: hidden;
+    margin-top: 0.6rem;
 }
 
 .progress-bar {
-    background: #28a745;
     height: 100%;
+    background: var(--accent);
     width: 0%;
-    transition: width 0.3s ease;
+    transition: width 0.4s ease-in-out;
 }
 
-/* ===== Dark Mode ===== */
-.dark-mode {
-    background-color: #121212;
+/* Dark mode adjustments */
+body.dark input[type="text"] {
+    background: #444;
+    border: 1px solid #666;
     color: white;
 }
 
-.dark-mode .person {
-    background-color: #1e1e1e;
+body.dark .subject {
+    border: 1px solid #555;
 }
 
-.dark-mode .subject {
-    background-color: #2a2a2a;
-    border-color: #444;
-}
-
-.dark-mode .topic-input {
-    background-color: #333;
-    color: white;
-    border-color: #555;
+@media (max-width: 600px) {
+    .controls button {
+        display: block;
+        width: 100%;
+        margin: 0.3rem 0;
+    }
 }
