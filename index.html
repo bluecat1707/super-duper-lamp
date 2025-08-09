@@ -1,149 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Academic Planner</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Academic Planner</h1>
-    <button id="themeToggle">Toggle Theme</button>
+    <button id="themeToggle">Toggle theme</button>
   </header>
 
   <main>
-    <!-- Ahamad Section -->
-    <section class="person ahamad" data-name="Ahamad">
+    <!-- PERSON TEMPLATE: Ahamad -->
+    <section class="person" data-name="Ahamad">
       <div class="person-header">
         <h2>Ahamad</h2>
-        <button class="unlock-btn" data-person="Ahamad">Unlock / Lock</button>
-        <span class="save-status"></span>
+        <div class="person-controls">
+          <button class="unlock-btn" data-person="Ahamad">Unlock</button>
+          <span class="save-status" aria-live="polite"></span>
+        </div>
       </div>
 
       <div class="subjects">
-        <!-- Nursing Management -->
-        <div class="subject">
+        <!-- Nursing Management (subject short code nm) -->
+        <div class="subject" data-subject="nm">
           <h3>Nursing Management</h3>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_a1_chk" disabled />
-            <input type="text" id="Ahamad_nm_a1_txt" placeholder="Assignment 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_nm_a1_chk" />
+            <input type="text" id="Ahamad_nm_a1_txt" placeholder="Assignment 1 topic" />
           </div>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_a2_chk" disabled />
-            <input type="text" id="Ahamad_nm_a2_txt" placeholder="Assignment 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_nm_a2_chk" />
+            <input type="text" id="Ahamad_nm_a2_txt" placeholder="Assignment 2 topic" />
           </div>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_s1_chk" disabled />
-            <input type="text" id="Ahamad_nm_s1_txt" placeholder="Seminar 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_nm_s1_chk" />
+            <input type="text" id="Ahamad_nm_s1_txt" placeholder="Seminar 1 topic" />
           </div>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_s2_chk" disabled />
-            <input type="text" id="Ahamad_nm_s2_txt" placeholder="Seminar 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_nm_s2_chk" />
+            <input type="text" id="Ahamad_nm_s2_txt" placeholder="Seminar 2 topic" />
           </div>
+
+          <!-- Clinical — fixed label (text not editable) + checkbox -->
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_nm_clinical_chk" />
+            <input type="text" class="fixed-task" value="Clinical" disabled />
           </div>
+
+          <!-- Group Project — fixed label (text not editable) + checkbox -->
           <div class="task">
-            <input type="checkbox" id="Ahamad_nm_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_nm_group_chk" />
+            <input type="text" class="fixed-task" value="Group Project" disabled />
           </div>
+
           <div class="progress-bar-container">
             <div class="progress-bar"></div>
           </div>
         </div>
 
-        <!-- Child Health Nursing 2 -->
-        <div class="subject">
+        <!-- Child Health Nursing 2 (ch) -->
+        <div class="subject" data-subject="ch">
           <h3>Child Health Nursing 2</h3>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_a1_chk" disabled />
-            <input type="text" id="Ahamad_ch_a1_txt" placeholder="Assignment 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_ch_a1_chk" />
+            <input type="text" id="Ahamad_ch_a1_txt" placeholder="Assignment 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_a2_chk" disabled />
-            <input type="text" id="Ahamad_ch_a2_txt" placeholder="Assignment 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_ch_a2_chk" />
+            <input type="text" id="Ahamad_ch_a2_txt" placeholder="Assignment 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_s1_chk" disabled />
-            <input type="text" id="Ahamad_ch_s1_txt" placeholder="Seminar 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_ch_s1_chk" />
+            <input type="text" id="Ahamad_ch_s1_txt" placeholder="Seminar 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_s2_chk" disabled />
-            <input type="text" id="Ahamad_ch_s2_txt" placeholder="Seminar 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_ch_s2_chk" />
+            <input type="text" id="Ahamad_ch_s2_txt" placeholder="Seminar 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_ch_clinical_chk" />
+            <input type="text" class="fixed-task" value="Clinical" disabled />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_ch_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_ch_group_chk" />
+            <input type="text" class="fixed-task" value="Group Project" disabled />
           </div>
           <div class="progress-bar-container">
             <div class="progress-bar"></div>
           </div>
         </div>
 
-        <!-- Mental Health Nursing 2 -->
-        <div class="subject">
+        <!-- Mental Health Nursing 2 (mh) -->
+        <div class="subject" data-subject="mh">
           <h3>Mental Health Nursing 2</h3>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_a1_chk" disabled />
-            <input type="text" id="Ahamad_mh_a1_txt" placeholder="Assignment 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_mh_a1_chk" />
+            <input type="text" id="Ahamad_mh_a1_txt" placeholder="Assignment 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_a2_chk" disabled />
-            <input type="text" id="Ahamad_mh_a2_txt" placeholder="Assignment 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_mh_a2_chk" />
+            <input type="text" id="Ahamad_mh_a2_txt" placeholder="Assignment 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_s1_chk" disabled />
-            <input type="text" id="Ahamad_mh_s1_txt" placeholder="Seminar 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_mh_s1_chk" />
+            <input type="text" id="Ahamad_mh_s1_txt" placeholder="Seminar 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_s2_chk" disabled />
-            <input type="text" id="Ahamad_mh_s2_txt" placeholder="Seminar 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_mh_s2_chk" />
+            <input type="text" id="Ahamad_mh_s2_txt" placeholder="Seminar 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_mh_clinical_chk" />
+            <input type="text" class="fixed-task" value="Clinical" disabled />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mh_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_mh_group_chk" />
+            <input type="text" class="fixed-task" value="Group Project" disabled />
           </div>
           <div class="progress-bar-container">
             <div class="progress-bar"></div>
           </div>
         </div>
 
-        <!-- Midwifery -->
-        <div class="subject">
+        <!-- Midwifery (mid) -->
+        <div class="subject" data-subject="mid">
           <h3>Midwifery</h3>
+
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_a1_chk" disabled />
-            <input type="text" id="Ahamad_mid_a1_txt" placeholder="Assignment 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_mid_a1_chk" />
+            <input type="text" id="Ahamad_mid_a1_txt" placeholder="Assignment 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_a2_chk" disabled />
-            <input type="text" id="Ahamad_mid_a2_txt" placeholder="Assignment 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_mid_a2_chk" />
+            <input type="text" id="Ahamad_mid_a2_txt" placeholder="Assignment 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_s1_chk" disabled />
-            <input type="text" id="Ahamad_mid_s1_txt" placeholder="Seminar 1 topic" disabled />
+            <input type="checkbox" id="Ahamad_mid_s1_chk" />
+            <input type="text" id="Ahamad_mid_s1_txt" placeholder="Seminar 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_s2_chk" disabled />
-            <input type="text" id="Ahamad_mid_s2_txt" placeholder="Seminar 2 topic" disabled />
+            <input type="checkbox" id="Ahamad_mid_s2_chk" />
+            <input type="text" id="Ahamad_mid_s2_txt" placeholder="Seminar 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_mid_clinical_chk" />
+            <input type="text" class="fixed-task" value="Clinical" disabled />
           </div>
           <div class="task">
-            <input type="checkbox" id="Ahamad_mid_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
+            <input type="checkbox" id="Ahamad_mid_group_chk" />
+            <input type="text" class="fixed-task" value="Group Project" disabled />
           </div>
           <div class="progress-bar-container">
             <div class="progress-bar"></div>
@@ -151,141 +165,79 @@
         </div>
       </div>
     </section>
-    <!-- Sakshi Section -->
-    <section class="person sakshi" data-name="Sakshi">
+
+    <!-- PERSON TEMPLATE: Sakshi -->
+    <section class="person" data-name="Sakshi">
       <div class="person-header">
         <h2>Sakshi</h2>
-        <button class="unlock-btn" data-person="Sakshi">Unlock / Lock</button>
-        <span class="save-status"></span>
+        <div class="person-controls">
+          <button class="unlock-btn" data-person="Sakshi">Unlock</button>
+          <span class="save-status" aria-live="polite"></span>
+        </div>
       </div>
 
       <div class="subjects">
-        <!-- Nursing Management -->
-        <div class="subject">
+        <!-- Repeat same subjects (IDs include person name) -->
+        <div class="subject" data-subject="nm">
           <h3>Nursing Management</h3>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_a1_chk" disabled />
-            <input type="text" id="Sakshi_nm_a1_txt" placeholder="Assignment 1 topic" disabled />
+            <input type="checkbox" id="Sakshi_nm_a1_chk" />
+            <input type="text" id="Sakshi_nm_a1_txt" placeholder="Assignment 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_a2_chk" disabled />
-            <input type="text" id="Sakshi_nm_a2_txt" placeholder="Assignment 2 topic" disabled />
+            <input type="checkbox" id="Sakshi_nm_a2_chk" />
+            <input type="text" id="Sakshi_nm_a2_txt" placeholder="Assignment 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_s1_chk" disabled />
-            <input type="text" id="Sakshi_nm_s1_txt" placeholder="Seminar 1 topic" disabled />
+            <input type="checkbox" id="Sakshi_nm_s1_chk" />
+            <input type="text" id="Sakshi_nm_s1_txt" placeholder="Seminar 1 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_s2_chk" disabled />
-            <input type="text" id="Sakshi_nm_s2_txt" placeholder="Seminar 2 topic" disabled />
+            <input type="checkbox" id="Sakshi_nm_s2_chk" />
+            <input type="text" id="Sakshi_nm_s2_txt" placeholder="Seminar 2 topic" />
           </div>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
+            <input type="checkbox" id="Sakshi_nm_clinical_chk" />
+            <input type="text" class="fixed-task" value="Clinical" disabled />
           </div>
           <div class="task">
-            <input type="checkbox" id="Sakshi_nm_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
+            <input type="checkbox" id="Sakshi_nm_group_chk" />
+            <input type="text" class="fixed-task" value="Group Project" disabled />
           </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-          </div>
+          <div class="progress-bar-container"><div class="progress-bar"></div></div>
         </div>
 
-        <!-- Child Health Nursing 2 -->
-        <div class="subject">
+        <div class="subject" data-subject="ch">
           <h3>Child Health Nursing 2</h3>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_a1_chk" disabled />
-            <input type="text" id="Sakshi_ch_a1_txt" placeholder="Assignment 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_a2_chk" disabled />
-            <input type="text" id="Sakshi_ch_a2_txt" placeholder="Assignment 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_s1_chk" disabled />
-            <input type="text" id="Sakshi_ch_s1_txt" placeholder="Seminar 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_s2_chk" disabled />
-            <input type="text" id="Sakshi_ch_s2_txt" placeholder="Seminar 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_ch_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
-          </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-          </div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_a1_chk"/><input id="Sakshi_ch_a1_txt" type="text" placeholder="Assignment 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_a2_chk"/><input id="Sakshi_ch_a2_txt" type="text" placeholder="Assignment 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_s1_chk"/><input id="Sakshi_ch_s1_txt" type="text" placeholder="Seminar 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_s2_chk"/><input id="Sakshi_ch_s2_txt" type="text" placeholder="Seminar 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_clinical_chk"/><input type="text" class="fixed-task" value="Clinical" disabled/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_ch_group_chk"/><input type="text" class="fixed-task" value="Group Project" disabled/></div>
+          <div class="progress-bar-container"><div class="progress-bar"></div></div>
         </div>
 
-        <!-- Mental Health Nursing 2 -->
-        <div class="subject">
+        <div class="subject" data-subject="mh">
           <h3>Mental Health Nursing 2</h3>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_a1_chk" disabled />
-            <input type="text" id="Sakshi_mh_a1_txt" placeholder="Assignment 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_a2_chk" disabled />
-            <input type="text" id="Sakshi_mh_a2_txt" placeholder="Assignment 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_s1_chk" disabled />
-            <input type="text" id="Sakshi_mh_s1_txt" placeholder="Seminar 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_s2_chk" disabled />
-            <input type="text" id="Sakshi_mh_s2_txt" placeholder="Seminar 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mh_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
-          </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-          </div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_a1_chk"/><input id="Sakshi_mh_a1_txt" type="text" placeholder="Assignment 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_a2_chk"/><input id="Sakshi_mh_a2_txt" type="text" placeholder="Assignment 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_s1_chk"/><input id="Sakshi_mh_s1_txt" type="text" placeholder="Seminar 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_s2_chk"/><input id="Sakshi_mh_s2_txt" type="text" placeholder="Seminar 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_clinical_chk"/><input type="text" class="fixed-task" value="Clinical" disabled/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mh_group_chk"/><input type="text" class="fixed-task" value="Group Project" disabled/></div>
+          <div class="progress-bar-container"><div class="progress-bar"></div></div>
         </div>
 
-        <!-- Midwifery -->
-        <div class="subject">
+        <div class="subject" data-subject="mid">
           <h3>Midwifery</h3>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_a1_chk" disabled />
-            <input type="text" id="Sakshi_mid_a1_txt" placeholder="Assignment 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_a2_chk" disabled />
-            <input type="text" id="Sakshi_mid_a2_txt" placeholder="Assignment 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_s1_chk" disabled />
-            <input type="text" id="Sakshi_mid_s1_txt" placeholder="Seminar 1 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_s2_chk" disabled />
-            <input type="text" id="Sakshi_mid_s2_txt" placeholder="Seminar 2 topic" disabled />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_clinical_chk" disabled />
-            <input type="text" value="Clinical" disabled class="fixed-task" />
-          </div>
-          <div class="task">
-            <input type="checkbox" id="Sakshi_mid_group_chk" disabled />
-            <input type="text" value="Group Project" disabled class="fixed-task" />
-          </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-          </div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_a1_chk"/><input id="Sakshi_mid_a1_txt" type="text" placeholder="Assignment 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_a2_chk"/><input id="Sakshi_mid_a2_txt" type="text" placeholder="Assignment 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_s1_chk"/><input id="Sakshi_mid_s1_txt" type="text" placeholder="Seminar 1 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_s2_chk"/><input id="Sakshi_mid_s2_txt" type="text" placeholder="Seminar 2 topic"/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_clinical_chk"/><input type="text" class="fixed-task" value="Clinical" disabled/></div>
+          <div class="task"><input type="checkbox" id="Sakshi_mid_group_chk"/><input type="text" class="fixed-task" value="Group Project" disabled/></div>
+          <div class="progress-bar-container"><div class="progress-bar"></div></div>
         </div>
       </div>
     </section>
