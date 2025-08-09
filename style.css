@@ -1,192 +1,200 @@
 /* ===== GLOBAL RESET ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* ===== ROOT VARIABLES ===== */
 :root {
-    --bg-color: #f8f9fa;
-    --card-color: #ffffff;
-    --text-color: #202124;
-    --accent-color: #4a90e2;
-    --border-color: #e0e0e0;
-    --progress-bg: #e9ecef;
-    --progress-fill: var(--accent-color);
+  --bg-color: #f8f9fa;
+  --card-color: #ffffff;
+  --text-color: #202124;
+  --accent-color: #4a90e2;
+  --border-color: #e0e0e0;
+  --progress-bg: #e9ecef;
+  --progress-fill: var(--accent-color);
 }
 
 /* ===== DARK MODE VARIABLES ===== */
 body.dark {
-    --bg-color: #1e1e1e;
-    --card-color: #2b2b2b;
-    --text-color: #e8eaed;
-    --border-color: #3c3c3c;
-    --progress-bg: #3a3a3a;
+  --bg-color: #1e1e1e;
+  --card-color: #2b2b2b;
+  --text-color: #e8eaed;
+  --border-color: #3c3c3c;
+  --progress-bg: #3a3a3a;
 }
 
 /* ===== BASE STYLES ===== */
 body {
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.5;
-    padding: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 /* ===== HEADER ===== */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 header h1 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 #themeToggle {
-    padding: 8px 14px;
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 #themeToggle:hover {
-    background: #357abd;
+  background: #357abd;
 }
 
-/* ===== PERSON CARD ===== */
+/* ===== PERSON CONTAINER ===== */
 .person {
-    background: var(--card-color);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-    border: 1px solid var(--border-color);
-    transition: background 0.3s ease, border-color 0.3s ease;
+  background: var(--card-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .person-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .person-header h2 {
-    font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .unlock-btn {
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    transition: background 0.3s ease;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
 }
 
 .unlock-btn:hover {
-    background: #357abd;
+  background: #357abd;
 }
 
-.save-status {
-    font-size: 0.85rem;
-    color: var(--accent-color);
-}
-
-/* ===== SUBJECT CARD ===== */
+/* ===== SUBJECT CONTAINER ===== */
 .subject {
-    background: var(--bg-color);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .subject h3 {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 6px;
 }
 
-/* ===== TASKS ===== */
+/* ===== TASK ROW ===== */
 .task {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.task label {
-    flex: 0 0 140px;
-    font-weight: 500;
+.task input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task input[type="checkbox"]:disabled {
+  cursor: default;
 }
 
 .task input[type="text"] {
-    flex: 1;
-    padding: 6px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background: var(--card-color);
-    color: var(--text-color);
-    transition: border-color 0.2s ease;
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--card-color);
+  transition: border-color 0.2s ease;
 }
 
 .task input[type="text"]:focus {
-    border-color: var(--accent-color);
-    outline: none;
+  border-color: var(--accent-color);
+  outline: none;
 }
 
-/* ===== CHECKBOX TASKS ===== */
-.task-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+.task input[type="text"]:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  color: #777;
 }
 
-.task-section label {
-    flex: 0 0 140px;
-    font-weight: 500;
-}
-
-.task-section input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+.task .fixed-task {
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--text-color);
+  padding-left: 0;
 }
 
 /* ===== PROGRESS BAR ===== */
 .progress-bar-container {
-    background: var(--progress-bg);
-    border-radius: 6px;
-    height: 8px;
-    margin-top: 8px;
-    overflow: hidden;
+  height: 10px;
+  width: 100%;
+  background-color: var(--progress-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .progress-bar {
-    background: var(--progress-fill);
-    height: 100%;
-    width: 0;
-    transition: width 0.3s ease;
+  height: 100%;
+  width: 0%;
+  background-color: var(--progress-fill);
+  border-radius: 8px;
+  transition: width 0.3s ease;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .task label,
-    .task-section label {
-        flex: 0 0 110px;
-        font-size: 0.85rem;
-    }
+  body {
+    padding: 12px;
+  }
 
-    header h1 {
-        font-size: 1.4rem;
-    }
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .task input[type="text"] {
+    font-size: 0.9rem;
+  }
 }
