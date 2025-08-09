@@ -1,179 +1,139 @@
-/* ====== Reset & Base ====== */
+/* ===== Global Styles ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
 body {
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: #f5f6fa;
-    color: #222;
-    line-height: 1.5;
+    background-color: #f8f9fa;
+    color: #333;
     padding: 20px;
     transition: background 0.3s, color 0.3s;
 }
 
-h1, h2, h3, h4 {
-    font-weight: 600;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-/* ====== Header ====== */
 header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
-    text-align: center;
 }
 
-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+h1 {
+    font-size: 2rem;
 }
 
-.top-controls {
-    display: flex;
-    gap: 10px;
-}
-
-.top-controls button {
-    padding: 8px 14px;
-    background: #0078d4;
+.controls button {
+    padding: 8px 15px;
+    margin-left: 8px;
+    border: none;
+    background: #007bff;
     color: white;
     border-radius: 6px;
-    font-size: 0.9rem;
-    transition: background 0.3s;
-}
-
-.top-controls button:hover {
-    background: #005a9e;
-}
-
-/* ====== Sections ====== */
-main {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.person-section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.person-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
-
-.subject {
-    background: #fdfdfd;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #e4e4e4;
-}
-
-.subject h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-/* ====== Progress Bar ====== */
-.progress {
-    width: 100%;
-    height: 8px;
-    background: #e4e4e4;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    height: 8px;
-    background: #28a745;
-    width: 0%;
-    transition: width 0.3s;
-}
-
-/* ====== Task Groups ====== */
-.task-group {
-    margin-bottom: 12px;
-}
-
-.task-group h4 {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: #444;
-}
-
-.topic-input {
-    display: block;
-    width: 100%;
-    padding: 7px;
-    margin-bottom: 6px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    background: #f9f9f9;
+    cursor: pointer;
     transition: background 0.2s;
 }
 
-.topic-input:disabled {
-    opacity: 0.7;
-    background: #f0f0f0;
+.controls button:hover {
+    background: #0056b3;
 }
 
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* ===== Person Section ===== */
+.person {
+    flex: 1 1 500px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.person h2 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* ===== Subject Box ===== */
+.subject {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.subject h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+/* ===== Tasks & Inputs ===== */
+.tasks label,
 .checklist label {
     display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.topic-input {
+    padding: 6px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 3px;
     font-size: 0.9rem;
-    margin-bottom: 5px;
 }
 
-.checklist input[type="checkbox"] {
-    margin-right: 6px;
+/* ===== Checklist ===== */
+.checklist {
+    margin-top: 10px;
 }
 
-/* ====== Dark Mode ====== */
-body.dark {
-    background-color: #181a1b;
-    color: #e6e6e6;
+.checklist h4 {
+    margin-bottom: 6px;
+    color: #28a745;
 }
 
-body.dark .person-section {
-    background: #202324;
-    border-color: #2a2d2e;
+/* ===== Progress Bar ===== */
+.progress {
+    background: #e9ecef;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
-body.dark .subject {
-    background: #26292a;
-    border-color: #333;
+.progress-bar {
+    background: #28a745;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
-body.dark .topic-input {
-    background: #1f2122;
-    border-color: #444;
+/* ===== Dark Mode ===== */
+.dark-mode {
+    background-color: #121212;
     color: white;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 768px) {
-    .top-controls {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.dark-mode .person {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .subject {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+.dark-mode .topic-input {
+    background-color: #333;
+    color: white;
+    border-color: #555;
 }
